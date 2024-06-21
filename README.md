@@ -105,3 +105,5 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 - **Beshoy Marco** - UI Design
 - **Veronia Gamil** - Educational Technology Specialist
 ---
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
