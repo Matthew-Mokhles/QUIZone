@@ -50,7 +50,6 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │               └── yourpackage
 │                   └── YourTest.java
 ├── README.md
-├── LICENSE
 ├── Example for importing Excel.xlsx
 ├── AI model.pdf
 ├── Quiz Manangement System Presentation.pptx
@@ -104,9 +103,4 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 - **Matthew Mokhles** - Project Lead
 - **Beshoy Marco** - UI Design
 - **Veronia Gamil** - Educational Technology Specialist
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
