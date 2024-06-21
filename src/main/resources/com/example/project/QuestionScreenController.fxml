@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0F1035;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.QuestionScreenController">
+   <children>
+      <SplitPane dividerPositions="0.7505727376861397" layoutY="11.2" prefHeight="385.0" prefWidth="600.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="11.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #0F1035;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #365486;">
+                          <items>
+                              <Label fx:id="header" prefHeight="22.0" prefWidth="378.0" text="Title" textFill="#c0f3ff">
+                                 <font>
+                                    <Font name="Helsinki" size="18.0" />
+                                 </font></Label>
+                              <Label fx:id="timerLabel" prefHeight="27.0" prefWidth="93.0" text="Timing" textFill="#c0f3ff">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Helsinki" size="14.0" />
+                                 </font>
+                              </Label>
+                          </items>
+                        </ToolBar>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefWidth="596.0" spacing="470.0">
+                           <children>
+                              <Button id="red" fx:id="back" mnemonicParsing="false" onAction="#back" stylesheets="@../../../stylesheet.css" text="Back" />
+                              <Button id="windows" fx:id="next" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nextQuestions" prefHeight="22.0" prefWidth="50.0" style="-fx-background-radius: 80;" stylesheets="@../../../stylesheet.css" text="Next" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <Label fx:id="question" prefHeight="66.0" prefWidth="523.0" text="Question" textFill="#7fc7d9" wrapText="true">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Helsinki" size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator prefHeight="4.0" prefWidth="446.0" style="-fx-background-color: #DCF2F1;" />
+                        <RadioButton fx:id="option1" mnemonicParsing="false" prefHeight="62.0" prefWidth="520.0" text="RadioButton" textFill="#7fc7d9" wrapText="true">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="options" />
+                           </toggleGroup>
+                           <font>
+                              <Font name="Yu Gothic UI Semibold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="option2" mnemonicParsing="false" prefHeight="65.0" prefWidth="521.0" text="RadioButton" textFill="#7fc7d9" toggleGroup="$options" wrapText="true">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Yu Gothic UI Semibold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="option3" mnemonicParsing="false" prefHeight="69.0" prefWidth="523.0" text="RadioButton" textFill="#7fc7d9" toggleGroup="$options" wrapText="true">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Yu Gothic UI Semibold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="option4" mnemonicParsing="false" prefHeight="66.0" prefWidth="539.0" text="RadioButton" textFill="#7fc7d9" toggleGroup="$options" wrapText="true">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Yu Gothic UI Semibold" size="13.0" />
+                           </font>
+                        </RadioButton>
+                        <Separator prefHeight="4.0" prefWidth="446.0" style="-fx-background-color: #DCF2F1;">
+                           <opaqueInsets>
+                              <Insets bottom="10.0" />
+                           </opaqueInsets>
+                        </Separator>
+                        <HBox alignment="TOP_RIGHT" prefHeight="78.0" prefWidth="446.0">
+                           <children>
+                              <Button id="windows" fx:id="submit" alignment="CENTER" mnemonicParsing="false" onAction="#submit" style="-fx-background-radius: 80;" stylesheets="@../../../stylesheet.css" text="Submit" />
+                           </children>
+                           <padding>
+                              <Insets right="20.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="166.0" style="-fx-background-color: white;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="2.0" text="Quiz progress" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <FlowPane fx:id="progresscontainer" hgap="5.0" layoutY="28.8" prefHeight="458.0" prefWidth="171.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

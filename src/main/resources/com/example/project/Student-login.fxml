@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.HelloController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="500.0" fitWidth="350.0" layoutY="1.0">
+               <image>
+                  <Image url="@../../../Pic/Login Page Mobile Prototype(3).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="66.0" prefHeight="104.0" prefWidth="202.0" text="QUiZone" textFill="#4942ce">
+               <font>
+                  <Font name="Fugaz One" size="50.0" />
+               </font>
+            </Label>
+            <Button layoutX="1.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToFirstScene" style="-fx-background-color: TRANSPARENT;" text="Back" textFill="#4942ce">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="21.0">
+                     <image>
+                        <Image url="@../../../Pic/previous.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="BaronNeueBold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: WHITE; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 0px 4px;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="id" layoutX="114.0" layoutY="209.0" promptText="id" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="password" layoutX="114.0" layoutY="260.0" promptText="pin code" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button id="line" layoutX="96.0" layoutY="313.0" mnemonicParsing="false" onAction="#Login" prefHeight="23.0" prefWidth="177.0" style="-fx-background-radius: 80;" stylesheets="@../../../stylesheet.css" text="Login">
+               <font>
+                  <Font name="Alba Matter" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="108.0" layoutY="108.0" prefHeight="38.0" prefWidth="161.0" text="Student Login" textFill="#4942ce">
+               <font>
+                  <Font name="Alegreya Sans ExtraBold Italic" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="80.0" layoutY="215.0">
+               <image>
+                  <Image url="@../../../Pic/user(2).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="51.0" layoutX="160.0" layoutY="61.0">
+               <image>
+                  <Image url="@../../../Pic/group(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="80.0" layoutY="266.0">
+               <image>
+                  <Image url="@../../../Pic/key.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="301.0" layoutY="4.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: TRANSPARENT;">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@../../../Pic/cancel.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Hyperlink layoutX="122.0" layoutY="401.0" onAction="#HyperLink" text="Forgot Your Password ?" />
+            <Label fx:id="loginStatus" alignment="CENTER" layoutX="85.0" layoutY="164.0" prefHeight="25.0" prefWidth="198.0" textAlignment="CENTER" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

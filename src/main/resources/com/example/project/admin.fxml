@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #00224D;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.AdminController">
+   <children>
+      <TabPane layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="700.0" stylesheets="@../../../TabPane.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Add Student">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.3081328751431844" prefHeight="469.0" prefWidth="700.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="10.0" prefHeight="456.0" prefWidth="202.0" spacing="12.0" style="-fx-background-color: #F6F5F5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="header" prefHeight="35.0" prefWidth="195.0" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans Bold" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label prefHeight="34.0" prefWidth="150.0" text="Enter Student Details" textAlignment="CENTER" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans ExtraBold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <TextField fx:id="id" focusTraversable="false" promptText="id" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <TextField fx:id="name" focusTraversable="false" promptText="Name" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <TextField fx:id="pinCode" focusTraversable="false" promptText="Pin Code" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <Button id="line" focusTraversable="false" mnemonicParsing="false" onAction="#saveStu" prefHeight="24.0" prefWidth="101.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Save Student">
+                                             <font>
+                                                <Font name="Alnaqaaa S" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="red" focusTraversable="false" mnemonicParsing="false" onAction="#clear" prefHeight="24.0" prefWidth="101.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Clear">
+                                             <font>
+                                                <Font name="CoolveticaRg-Regular" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="bevel" focusTraversable="false" mnemonicParsing="false" onAction="#importFromExcel" prefHeight="33.0" prefWidth="151.0" style="-fx-background-radius: 40;" stylesheets="@../../../stylesheet.css" text="import from Excel" textFill="WHITE">
+                                             <graphic>
+                                                <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../../Pic/excel.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <font>
+                                                <Font name="Gotham Bold" size="24.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="message" prefHeight="56.0" prefWidth="199.0" textAlignment="CENTER" textFill="#15825c">
+                                             <font>
+                                                <Font name="Alegreya Sans Medium" size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="42.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="tableView" prefHeight="481.0" prefWidth="484.0">
+                                            <columns>
+                                              <TableColumn fx:id="studentid" prefWidth="75.0" text="Student ID" />
+                                              <TableColumn fx:id="studentName" prefWidth="75.0" text="Student Name" />
+                                                <TableColumn fx:id="studentPincode" prefWidth="75.0" text="Student Pin Code" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Remove Student">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.37542955326460475" prefHeight="469.0" prefWidth="700.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="10.0" prefHeight="456.0" prefWidth="202.0" spacing="15.0" style="-fx-background-color: #F6F5F5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="header1" prefHeight="34.0" prefWidth="195.0" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans Bold" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label prefHeight="34.0" prefWidth="150.0" text="Enter Student Details" textAlignment="CENTER" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans ExtraBold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <TextField fx:id="id1" focusTraversable="false" promptText="id" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <Button id="line" focusTraversable="false" mnemonicParsing="false" onAction="#deleteStu" prefHeight="24.0" prefWidth="101.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Delete Student">
+                                             <font>
+                                                <Font name="Alnaqaaa S" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="red" focusTraversable="false" mnemonicParsing="false" onAction="#clear1" prefHeight="24.0" prefWidth="101.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Clear">
+                                             <font>
+                                                <Font name="CoolveticaRg-Regular" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="message1" prefHeight="34.0" prefWidth="258.0" textAlignment="CENTER" textFill="#15825c">
+                                             <font>
+                                                <Font name="Alegreya Sans Medium" size="15.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="42.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="tableView1" prefHeight="481.0" prefWidth="484.0">
+                                             <columns>
+                                                <TableColumn fx:id="studentid1" prefWidth="75.0" text="Student ID" />
+                                                <TableColumn fx:id="studentName1" prefWidth="75.0" text="Student Name" />
+                                                <TableColumn fx:id="studentPincode1" prefWidth="75.0" text="Student Pin Code" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Update Student Data">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.3081328751431844" prefHeight="469.0" prefWidth="700.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="10.0" prefHeight="456.0" prefWidth="202.0" spacing="15.0" style="-fx-background-color: #F6F5F5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="header2" prefHeight="34.0" prefWidth="195.0" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans Bold" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label prefHeight="34.0" prefWidth="150.0" text="Enter Student Details" textAlignment="CENTER" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans ExtraBold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <TextField fx:id="id2" disable="true" editable="false" focusTraversable="false" promptText="id" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <TextField fx:id="name1" focusTraversable="false" promptText="Name" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <TextField fx:id="pinCode1" focusTraversable="false" promptText="Pin Code" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <Button id="line" focusTraversable="false" mnemonicParsing="false" onAction="#updateStu" prefHeight="24.0" prefWidth="85.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Update ">
+                                             <font>
+                                                <Font name="Alnaqaaa S" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="red" focusTraversable="false" mnemonicParsing="false" onAction="#clear2" prefHeight="26.0" prefWidth="86.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Clear">
+                                             <font>
+                                                <Font name="CoolveticaRg-Regular" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="message2" prefHeight="34.0" prefWidth="199.0" textAlignment="CENTER" textFill="#15825c">
+                                             <font>
+                                                <Font name="Alegreya Sans Medium" size="15.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="42.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="tableView2" prefHeight="481.0" prefWidth="484.0">
+                                             <columns>
+                                                <TableColumn fx:id="studentid2" prefWidth="75.0" text="Student ID" />
+                                                <TableColumn fx:id="studentName2" prefWidth="75.0" text="Student Name" />
+                                                <TableColumn fx:id="studentPincode2" prefWidth="75.0" text="Student Pin Code" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Registration">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.3081328751431844" prefHeight="469.0" prefWidth="700.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="10.0" prefHeight="456.0" prefWidth="202.0" spacing="15.0" style="-fx-background-color: #F6F5F5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label fx:id="header3" prefHeight="34.0" prefWidth="195.0" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans Bold" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label prefHeight="34.0" prefWidth="150.0" text="Enter Student Details" textAlignment="CENTER" textFill="#4942ce">
+                                             <font>
+                                                <Font name="Alegreya Sans ExtraBold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <TextField fx:id="studentId" focusTraversable="false" promptText="Student Id" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <TextField fx:id="Courseid" focusTraversable="false" promptText="Course Code" style="-fx-background-color: Transparent; -fx-border-color: #4942ce; -fx-border-width: 0px 0px 2px 0px;">
+                                             <padding>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </padding>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <Separator prefHeight="0.0" prefWidth="208.0" style="-fx-background-color: #FF204E;" />
+                                          <Button id="red" focusTraversable="false" mnemonicParsing="false" onAction="#dropStudent" prefHeight="26.0" prefWidth="86.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Drop">
+                                             <font>
+                                                <Font name="CoolveticaRg-Regular" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="line" focusTraversable="false" mnemonicParsing="false" onAction="#RegisterStudent" prefHeight="24.0" prefWidth="85.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Register">
+                                             <font>
+                                                <Font name="Alnaqaaa S" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Button id="red" focusTraversable="false" mnemonicParsing="false" onAction="#clear3" prefHeight="26.0" prefWidth="86.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Clear">
+                                             <font>
+                                                <Font name="CoolveticaRg-Regular" size="13.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="message3" prefHeight="65.0" prefWidth="199.0" textAlignment="CENTER" textFill="#15825c" wrapText="true">
+                                             <font>
+                                                <Font name="Alegreya Sans Medium" size="15.0" />
+                                             </font>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="42.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TableView fx:id="tableView3" prefHeight="481.0" prefWidth="484.0">
+                                             <columns>
+                                                <TableColumn fx:id="studentid3" maxWidth="1.7976931348623157E308" prefWidth="90.39996641874313" text="Student ID" />
+                                                <TableColumn fx:id="studentName3" prefWidth="113.60003662109375" text="Student Name" />
+                                                <TableColumn fx:id="CourseCode" prefWidth="96.79994201660156" text="Course code" />
+                                                <TableColumn fx:id="CourseName" prefWidth="177.60003662109375" text="Course Name" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button id="red" layoutX="668.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchToFirstScene" prefHeight="26.0" prefWidth="25.0" style="-fx-background-radius: 100;" stylesheets="@../../../stylesheet.css" text="&lt;" AnchorPane.leftAnchor="668.0" AnchorPane.topAnchor="9.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
