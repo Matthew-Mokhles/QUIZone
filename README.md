@@ -1,3 +1,7 @@
+Here is a README for your GitHub repository:
+
+---
+
 # Quiz Management System (QMS)
 
 The Quiz Management System (QMS) is a robust platform designed to streamline the process of creating, managing, and conducting quizzes efficiently. With the increasing demand for digital assessment tools, QMS serves as a comprehensive solution to meet the diverse needs of educators, trainers, and organizations.
@@ -39,6 +43,11 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │   │   │   │   │   ├── controllers
 │   │   │   │   │   │   └── YourController.java
 │   │   │   │   │   ├── models
+│   │   │   │   │   │   └── YourModel.java
+│   │   │   │   │   ├── services
+│   │   │   │   │   │   └── YourService.java
+│   │   │   │   │   └── utils
+│   │   │   │   │       └── YourUtil.java
 │   │   │   └── resources
 │   │   │       ├── fxml
 │   │   │       │   └── YourView.fxml
@@ -50,9 +59,9 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │               └── yourpackage
 │                   └── YourTest.java
 ├── README.md
-├── LICENSE.md
-├── Example for importing Excel.xlsx
+├── LICENSE
 ├── AI model.pdf
+├── Example for importing Excel.xlsx
 ├── Quiz Manangement System Presentation.pptx
 └── Quiz Management System Overview.pdf
 ```
@@ -104,6 +113,9 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 - **Matthew Mokhles** - Project Lead
 - **Beshoy Marco** - UI Design
 - **Veronia Gamil** - Educational Technology Specialist
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
