@@ -50,6 +50,7 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │               └── yourpackage
 │                   └── YourTest.java
 ├── README.md
+├── LICENSE.md
 ├── Example for importing Excel.xlsx
 ├── AI model.pdf
 ├── Quiz Manangement System Presentation.pptx
