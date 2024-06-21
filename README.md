@@ -110,5 +110,3 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Feel free to customize this README further based on your specific project needs and details.
