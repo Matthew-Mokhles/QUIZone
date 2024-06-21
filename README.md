@@ -39,6 +39,11 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │   │   │   │   │   ├── controllers
 │   │   │   │   │   │   └── YourController.java
 │   │   │   │   │   ├── models
+│   │   │   │   │   │   └── YourModel.java
+│   │   │   │   │   ├── services
+│   │   │   │   │   │   └── YourService.java
+│   │   │   │   │   └── utils
+│   │   │   │   │       └── YourUtil.java
 │   │   │   └── resources
 │   │   │       ├── fxml
 │   │   │       │   └── YourView.fxml
@@ -50,9 +55,9 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 │               └── yourpackage
 │                   └── YourTest.java
 ├── README.md
-├── LICENSE.md
-├── Example for importing Excel.xlsx
+├── LICENSE
 ├── AI model.pdf
+├── Example for importing Excel.xlsx
 ├── Quiz Manangement System Presentation.pptx
 └── Quiz Management System Overview.pdf
 ```
@@ -104,4 +109,9 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 - **Matthew Mokhles** - Project Lead
 - **Beshoy Marco** - UI Design
 - **Veronia Gamil** - Educational Technology Specialist
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
 ---
