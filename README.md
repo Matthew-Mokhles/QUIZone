@@ -1,7 +1,3 @@
-Here is a README for your GitHub repository:
-
----
-
 # Quiz Management System (QMS)
 
 The Quiz Management System (QMS) is a robust platform designed to streamline the process of creating, managing, and conducting quizzes efficiently. With the increasing demand for digital assessment tools, QMS serves as a comprehensive solution to meet the diverse needs of educators, trainers, and organizations.
