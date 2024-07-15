@@ -107,8 +107,6 @@ QMS provides a user-friendly interface that simplifies the quiz creation process
 ## Contributors
 
 - **Matthew Mokhles** - Project Lead
-- **Beshoy Marco** - UI Design
-- **Veronia Gamil** - Educational Technology Specialist
 
 ## License
 
