@@ -8,6 +8,8 @@ module com.example.project {
     requires org.apache.poi.ooxml;
     requires langchain4j.core;
     requires langchain4j.ollama;
+    requires layout;
+    requires kernel;
 
 
     opens com.example.project to javafx.fxml;

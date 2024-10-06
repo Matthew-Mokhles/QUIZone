@@ -67,7 +67,7 @@
                                     <Image url="@../../../Pic/v915-techi-027-b.jpg" />
                                  </image>
                               </ImageView>
-                              <Button id="line" fx:id="startbtn" layoutX="384.0" layoutY="382.0" mnemonicParsing="false" onAction="#START" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Create " />
+                              <Button id="line" fx:id="startbtn" layoutX="281.0" layoutY="382.0" mnemonicParsing="false" onAction="#START" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Create " />
                               <TextField fx:id="numofQuestion" layoutX="419.0" layoutY="177.0" prefHeight="28.0" prefWidth="140.0" promptText="Number of Questions" style="-fx-background-color: Transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #24208e;" />
                               <Label layoutX="218.0" layoutY="177.0" prefHeight="26.0" prefWidth="188.0" text="Number of questions" textFill="#24208e">
                                  <font>
@@ -109,6 +109,11 @@
                                  </font>
                               </Label>
                               <ChoiceBox fx:id="courseChoiceBox" layoutX="415.0" layoutY="240.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #24208e; -fx-border-width: 4px;" />
+                              <Button id="red" fx:id="generatepdf" layoutX="482.0" layoutY="382.0" mnemonicParsing="false" onAction="#generatePDFs" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 10;" stylesheets="@../../../stylesheet.css" text="Generate PDF">
+                                 <font>
+                                    <Font name="Araboto Bold" size="12.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>

@@ -80,4 +80,22 @@ public class QuizQuestionGenerator {
             statement.executeBatch();
         }
     }
+    public static List<Integer> generateQuestions(int quizSize) throws SQLException {
+        int easyQuestions = (int) (quizSize * 0.5);
+        int mediumQuestions = (int) (quizSize * 0.3);
+        int hardQuestions = quizSize - easyQuestions - mediumQuestions;
+
+        // Fetch IDs from database (replace with real database query)
+        List<Integer> easyQuestionIDs = retrieveShuffledQuestionIDs("Easy", easyQuestions);
+        List<Integer> mediumQuestionIDs = retrieveShuffledQuestionIDs("Medium", mediumQuestions);
+        List<Integer> hardQuestionIDs = retrieveShuffledQuestionIDs("Hard", hardQuestions);
+
+        List<Integer> allQuestions = new ArrayList<>();
+        allQuestions.addAll(easyQuestionIDs);
+        allQuestions.addAll(mediumQuestionIDs);
+        allQuestions.addAll(hardQuestionIDs);
+        Collections.shuffle(allQuestions);
+
+        return allQuestions;
+    }
 }

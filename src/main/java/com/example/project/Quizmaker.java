@@ -23,6 +23,16 @@
 
 package com.example.project;
 
+import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfPage;
+import com.itextpdf.kernel.pdf.PdfReader;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,13 +50,21 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Quizmaker implements Initializable {
     @FXML
@@ -82,7 +100,7 @@ public class Quizmaker implements Initializable {
 
     private final ObservableList<Student> studentObservableList = FXCollections.observableArrayList();
     @FXML
-    private Button Exit;
+    private Button generatepdf;
     private double xOffset = 0;
     private double yOffset = 0;
     @FXML
@@ -179,6 +197,181 @@ public class Quizmaker implements Initializable {
         // Format time to HH:MM:SS
         return String.format("%02d:%02d:%02d", hoursValue, minutesValue, secondsValue);
     }
+    private List<Question> getQuestionsByIds(List<Integer> questionIDs) {
+        List<Question> questions = new ArrayList<>();
+        JDBC jdbc = new JDBC();
+        String query = "SELECT * FROM Questions WHERE QuestionID = ?";
+
+        for (Integer id : questionIDs) {
+            try (PreparedStatement preparedStatement = jdbc.getPreparedstatement(query)) {
+                preparedStatement.setInt(1, id);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    questions.add(new Question(
+                            resultSet.getString("QuestionText"),
+                            resultSet.getString("Answer1Text"),
+                            resultSet.getString("Answer2Text"),
+                            resultSet.getString("Answer3Text"),
+                            resultSet.getString("Answer4Text"),
+                            resultSet.getString("CorrectAnswerText"),
+                            resultSet.getString("Category")
+                    ));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Log total fetched questions
+        System.out.println("Total questions fetched from database: " + questions.size());
+
+        return questions;
+    }
+
+
+
+    @FXML
+    private void generatePDFs() {
+        try {
+            if(numofQuestion.getText().isBlank()){
+                showAlert("Error","Quiz size not declared");
+                return;
+            }
+            // Step 1: Generate quiz question IDs using the algorithm from QuizQuestionGenerator
+            int quizSize = Integer.parseInt(numofQuestion.getText());
+            List<Integer> questionIDs = QuizQuestionGenerator.generateQuestions(quizSize);
+
+            // Log the generated question IDs
+            System.out.println("Generated Question IDs: " + questionIDs);
+
+            // Step 2: Fetch actual Question objects based on question IDs
+            List<Question> questions = getQuestionsByIds(questionIDs);
+
+            // Log the number of questions fetched
+            System.out.println("Fetched Questions Count: " + questions.size());
+
+            // Check if the number of fetched questions matches the quiz size
+            if (questions.size() < quizSize) {
+                showAlert("Error", "Not enough questions available. Please increase the quiz size or check your question database.");
+                return;
+            }
+
+            // Step 3: Generate two PDFs
+            generateQuestionsOnlyPDF(questions, "quiz_questions_only_" + System.currentTimeMillis() + ".pdf");
+            generateQuestionsWithAnswersPDF(questions, "quiz_questions_with_answers_" + System.currentTimeMillis() + ".pdf");
+
+            // Step 4: Show success message
+            showAlert("PDF Generated", "Both PDFs have been generated successfully!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to generate PDFs.");
+        }
+    }
+    // PDF with only questions
+    // PDF with only questions
+    private void generateQuestionsOnlyPDF(List<Question> questions, String filename) throws IOException {
+        PdfWriter writer = new PdfWriter(filename);
+        PdfDocument pdfDoc = new PdfDocument(writer);
+        Document doc = new Document(pdfDoc, PageSize.A4);
+        doc.setMargins(30, 35, 20, 35); // Set margins for the document (increased right margin)
+
+        // Load the header file
+        String headerFile = "header.pdf";
+        PdfDocument headerDoc = new PdfDocument(new PdfReader(headerFile));
+        headerDoc.copyPagesTo(1, headerDoc.getNumberOfPages(), pdfDoc);
+        headerDoc.close(); // Close the header document
+
+        // Adding space between header and questions
+        doc.add(new Paragraph("\n\n\n\n\n\n\n\n")); // Adjust this value as needed for more spacing
+
+        // Adding Questions without borders
+        for (int i = 0; i < questions.size(); i++) {
+            Question question = questions.get(i);
+            doc.add(new Paragraph((i + 1) + ". " + question.getQuestion())
+                    .setFontSize(12)
+                    .setMarginBottom(5)
+                    .setFixedLeading(15)
+                    .setMarginRight(20)); // Add right margin to move text away from the border
+            doc.add(new Paragraph("    A) " + question.getAns1())
+                    .setFontSize(12)
+                    .setMarginBottom(5)
+                    .setFixedLeading(15)
+                    .setMarginRight(20));
+            doc.add(new Paragraph("    B) " + question.getAns2())
+                    .setFontSize(12)
+                    .setMarginBottom(5)
+                    .setFixedLeading(15)
+                    .setMarginRight(20));
+            doc.add(new Paragraph("    C) " + question.getAns3())
+                    .setFontSize(12)
+                    .setMarginBottom(5)
+                    .setFixedLeading(15)
+                    .setMarginRight(20));
+            doc.add(new Paragraph("    D) " + question.getAns4())
+                    .setFontSize(12)
+                    .setMarginBottom(15) // Add some space between questions
+                    .setFixedLeading(15)
+                    .setMarginRight(20));
+        }
+
+        // Add a page border to all pages
+        for (int i = 1; i <= pdfDoc.getNumberOfPages(); i++) {
+            PdfPage page = pdfDoc.getPage(i);
+            PdfCanvas canvas = new PdfCanvas(page);
+            canvas.rectangle(20, 20, pdfDoc.getDefaultPageSize().getWidth() - 40, pdfDoc.getDefaultPageSize().getHeight() - 40) // Draw a rectangle (border) around the page
+                    .setStrokeColor(new DeviceRgb(0, 0, 0)) // Black color
+                    .setLineWidth(1.5F)
+                    .stroke();
+        }
+
+        doc.close();
+    }
+    // PDF with questions and answers
+    private void generateQuestionsWithAnswersPDF(List<Question> questions, String filename) throws FileNotFoundException {
+        PdfWriter writer = new PdfWriter(filename);
+        PdfDocument pdfDoc = new PdfDocument(writer);
+        Document doc = new Document(pdfDoc);
+
+        // Add Header
+        doc.add(new Paragraph("Arab Academy for Science, Technology and Maritime Transport")
+                .setBold().setFontSize(14).setTextAlignment(TextAlignment.CENTER));
+        doc.add(new Paragraph("College of Computing and Information Technology")
+                .setBold().setFontSize(14).setTextAlignment(TextAlignment.CENTER));
+        doc.add(new Paragraph("Quiz")
+                .setBold().setFontSize(16).setTextAlignment(TextAlignment.CENTER));
+        doc.add(new Paragraph("---------------------------------------------------")
+                .setTextAlignment(TextAlignment.CENTER));
+
+        // Add Details
+        doc.add(new Paragraph("Lecturer       : Dr. Shady Zahran").setFontSize(12));
+        doc.add(new Paragraph("Course Title   : ").setFontSize(12));
+        doc.add(new Paragraph("Course Code    : ").setFontSize(12));
+        doc.add(new Paragraph("Time           : ").setFontSize(12));
+        doc.add(new Paragraph("Date           : ").setFontSize(12));
+        doc.add(new Paragraph("\n")); // Adding space before questions
+
+        // Adding Questions with Answers
+        for (int i = 0; i < questions.size(); i++) {
+            Question question = questions.get(i);
+            doc.add(new Paragraph((i + 1) + ". " + question.getQuestion())
+                    .setFontSize(12));
+            doc.add(new Paragraph("    A) " + question.getAns1())
+                    .setFontSize(12));
+            doc.add(new Paragraph("    B) " + question.getAns2())
+                    .setFontSize(12));
+            doc.add(new Paragraph("    C) " + question.getAns3())
+                    .setFontSize(12));
+            doc.add(new Paragraph("    D) " + question.getAns4())
+                    .setFontSize(12));
+            // Add correct answer
+            doc.add(new Paragraph("Answer: " + question.getCorrect())
+                    .setFontSize(12));
+            doc.add(new Paragraph("\n")); // Adding space after each question
+        }
+        doc.close();
+    }
+
 
     @FXML
     void START(ActionEvent event) {
